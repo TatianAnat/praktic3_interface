@@ -1,6 +1,6 @@
 package com.skypro.contact;
 
-public class EmailContact extends Contact {
+public class EmailContact implements Contact {
 
     private String name;
     private String domain;
@@ -14,4 +14,5 @@ public class EmailContact extends Contact {
     public void call() {
         System.out.println("Вызов " + name + "@" + domain);
     }
+
 }

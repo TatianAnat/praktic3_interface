@@ -1,8 +1,11 @@
 package com.skypro.contact;
 
-public class Contact {
+public interface Contact {
 
-    public void call() {
+    void call();
 
+    default  void sound() {
+        System.out.println("...");
+        call();
     }
 }

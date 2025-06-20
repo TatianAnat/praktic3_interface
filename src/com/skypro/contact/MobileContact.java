@@ -1,6 +1,6 @@
 package com.skypro.contact;
 
-public class MobileContact extends Contact{
+public class MobileContact implements Contact {
 
     private String contryCode;
     private String operatorCode;
@@ -15,5 +15,10 @@ public class MobileContact extends Contact{
     @Override
     public void call() {
         System.out.println("Вызов + "+ contryCode + "(" + operatorCode + ")" + number);
+    }
+
+    @Override
+    public void sound() {
+        System.out.println("ring-ring");
     }
 }

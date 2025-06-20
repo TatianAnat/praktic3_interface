@@ -1,5 +1,6 @@
 package com.skypro;
 
+import com.skypro.contact.Contact;
 import com.skypro.contact.EmailContact;
 import com.skypro.contact.MobileContact;
 
@@ -19,5 +20,8 @@ public class JavaProfMain {
 
         emailContact.call();
         mobileContact.call();
+        emailContact.sound();
+        mobileContact.sound();
+        ((Contact)mobileContact).sound();
     }
 }
