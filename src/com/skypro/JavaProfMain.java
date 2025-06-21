@@ -23,5 +23,8 @@ public class JavaProfMain {
         emailContact.sound();
         mobileContact.sound();
         ((Contact)mobileContact).sound();
+
+        emailContact.exit();
+        mobileContact.exit();
     }
 }

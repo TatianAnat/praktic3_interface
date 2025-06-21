@@ -1,6 +1,6 @@
 package com.skypro.contact;
 
-public class EmailContact implements Contact {
+public class EmailContact implements Contact, Technolodgy {
 
     private String name;
     private String domain;
@@ -15,4 +15,8 @@ public class EmailContact implements Contact {
         System.out.println("Вызов " + name + "@" + domain);
     }
 
+    @Override
+    public void exit() {
+        System.out.println("EmailContact.exit");
+    }
 }
