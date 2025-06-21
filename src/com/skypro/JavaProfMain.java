@@ -3,6 +3,8 @@ package com.skypro;
 import com.skypro.contact.Contact;
 import com.skypro.contact.EmailContact;
 import com.skypro.contact.MobileContact;
+import com.skypro.database.Database;
+import com.skypro.database.MockDatabase;
 import com.skypro.database.OracleDatabase;
 import com.skypro.person.Friend;
 import com.skypro.person.Person;
@@ -53,12 +55,20 @@ public class JavaProfMain {
 
     //тестируем код
     private static void unitTesting() {
-        OracleDatabase database = new OracleDatabase();
+        Database database = getConnection("test");
         for (int i = 0; i < 100; i++) {
             //тестируем саму БД. Тестирование будет работать медленно,т.к. проверяет всё
             database.query(Integer.valueOf(i).toString());
         }
 
+    }
+
+    private static Database getConnection(String profile) {
+        if (profile.equals("test")) {
+            return new MockDatabase();
+        } else {
+            return new OracleDatabase();
+        }
     }
 
     private static void anonymousClasses() {
