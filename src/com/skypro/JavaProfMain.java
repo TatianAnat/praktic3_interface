@@ -3,7 +3,6 @@ package com.skypro;
 import com.skypro.contact.Contact;
 import com.skypro.contact.EmailContact;
 import com.skypro.contact.MobileContact;
-import com.skypro.person.Dog;
 import com.skypro.person.Friend;
 import com.skypro.person.Person;
 import com.skypro.person.Work;
@@ -47,6 +46,33 @@ public class JavaProfMain {
         emailContact.exit();
         mobileContact.exit();
         specificRealizationCommonInterface();
+        anonymousClasses();
+    }
+
+    private static void anonymousClasses() {
+        System.out.println("JavaProfMain.anonymousClasses");
+        EmailContact emailContact = new EmailContact("ivan123","yandex.ru");
+        MobileContact mobileContact = new MobileContact("7","999","1234567");
+
+        Person ivan = new Person("ivan");
+        ivan.setContact(emailContact);
+        Person petr = new Person("petr");
+        petr.setContact(mobileContact);
+        //объявляем как-будто бы конструктор интерфейса
+        //такое объявление называется анонимный класс
+//        Friend dog = new Friend() {
+//            @Override
+//            public void message(String message) {
+//                System.out.println("К ноге!");
+//            }
+//        };
+        Friend[] friends = {ivan,petr,(message)-> {
+            System.out.println(message);
+            System.out.println("К ноге!");
+        } };
+        sendMessage(friends,"друзья и безымянная собака!");
+
+
     }
 
     private static void specificRealizationCommonInterface(){
