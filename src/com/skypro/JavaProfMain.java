@@ -3,6 +3,7 @@ package com.skypro;
 import com.skypro.contact.Contact;
 import com.skypro.contact.EmailContact;
 import com.skypro.contact.MobileContact;
+import com.skypro.database.OracleDatabase;
 import com.skypro.person.Friend;
 import com.skypro.person.Person;
 import com.skypro.person.Work;
@@ -47,6 +48,17 @@ public class JavaProfMain {
         mobileContact.exit();
         specificRealizationCommonInterface();
         anonymousClasses();
+        unitTesting();
+    }
+
+    //тестируем код
+    private static void unitTesting() {
+        OracleDatabase database = new OracleDatabase();
+        for (int i = 0; i < 100; i++) {
+            //тестируем саму БД. Тестирование будет работать медленно,т.к. проверяет всё
+            database.query(Integer.valueOf(i).toString());
+        }
+
     }
 
     private static void anonymousClasses() {
